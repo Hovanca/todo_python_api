@@ -4,11 +4,25 @@
 ## 1. Inštalácia django a generovanie základnej štruktúri
 
 - ```pip install django```
-- ```django startproject <nazov>```
-- ```django startapp <nazov>```
-- Todoproject -> settings.py -> pridali sme applikaciu
+- ```django-admin startproject <nazov>```
+- ```cd <nazov projektu>```
+- ```django-admin startapp <nazov>```
+- ```python manage.py runserver``` url musi fungovat
+- Automaticky sa nam pridala databaza db.sqlite3
+- ```python manage.py migrate``` vytvori tabulky v databaze
+
+## 2. Vytvorenie superuser-a
+- ```python manage.py createsuperuser```
+- Spustime runserver a za url pridame /admin
+- Po prihlaseni sa sme sa dostali k zakladnej administracii
+
+## 3. Uprava zakladnej struktury
+- Alternativne, teraz si mozeme vytvorit app:
+- ```python manage.py startapp todolist```
+- Todoproject -> settings.py -> pridali sme applikaciu todolist
 - Vytvorili model Todo - todolist/model.py
 - ```pip install rest_framework```
+- 
 - Todoproject -> settings.py -> pridali sme applikaciu "rest_framework"
 - Vytvorili serializers.py a v ňom TodoSerializer
 - Vytovirli vo views.py - TodoView s napojenim na serializers (TodoSerializer)
