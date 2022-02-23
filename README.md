@@ -28,6 +28,27 @@
 - Vytovirli vo views.py - TodoView s napojenim na serializers (TodoSerializer)
 - Upravili URLS v urls.py v todoproject.
 
+##4. JSON vystup
+- ```pip install djangorestframework```
+- Keďže sme si toto nainštalovali, treba nám to rovnako pridať do settings/installed apps ako: ```'rest_framework'```
+
+##5. CORS
+- ```pip install django-cors-headers```
+- Keďže sme si toto nainštalovali, treba nám to rovnako pridať do settings/installed apps ako: ```"corsheaders"```
+- Je to zaroveň aj middleware a terda musíme si to tam pridať tiež ako : ```'corsheaders.middleware.CorsMiddleware'```
+- Na koniec settings musíme pridať aj : ``` CORS_ALLOW_ALL_ORIGINS = True``` -teda povoľuje momentálne 
+všetky kontroly. 
+
+##6. Views
+Tu nastavujeme finalne zobrazenie. Je to podobné ako MVC model (model view controller). 
+Model definuje databázu, view vykresľuje a potom controller robí správu podtým, čo a ako
+sa má ukladať (funkcie na tej stránke). 
+##7. URLs
+Registrujeme router a vytvorime si stranku na API.
+
+##Poznámky teoretické
+Migrácia je zapisovanie údajov do databázy na základe modelov.
+ORM = objektovo relačné mapovanie : máme funkcie ktoré robia za nás základné funkcie s databázou ako INSERT a pod.
 
 -> /todoproject/urls.py
 ```
@@ -50,6 +71,9 @@ urlpatterns = [
 
 ## CORS - Kontrolor požiadavok zo servera
 ![alt text](https://miro.medium.com/max/1400/0*heiz7awNkQ1B0O8e.png)
+Je to aplikácia medzi frontend a backend. Backend = server = django. Frontend = klient. 
+Klient pošle žiadosť, a očakáva odpoveď. Kontroluje, či ide odpoveď zo správneho zdroja a 
+či je tá komunikácia povolená. Preto to inštalujeme aj ako middleware. 
 
 - ```pip install django-cors-headers```
 - Todoproject -> settings.py -> pridali sme applikaciu ```"corsheaders"```
